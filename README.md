@@ -20,14 +20,6 @@ You have three hours to complete this Sprint Challenge. Plan your time according
 
 Commit your code regularly and meaningfully. This helps both you (in case you ever need to return to old code for any number of reasons) and it also helps your project manager to more thoroughly assess your work.
 
-## Description
-
-This Sprint Challenge is split into three parts:
-
-1. Implement a data structure called a ring buffer (more details below)
-2. Optimizing some inefficient code
-3. Reversing the contents of a singly linked list
-
 ### Minimum Viable Product
 
 #### [Blockchain](https://github.com/LambdaSchool/Sprint-Challenge--Hash-BC/tree/master/blockchain)
