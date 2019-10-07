@@ -1,6 +1,10 @@
 # Sprint Challenge: Data Structures
 
-In this week's Sprint you implemented some classic and fundamental data structures and learned about how to go about evaluating their respective runtimes and performance. This Sprint Challenge aims to assess your comfort with these topics through exercises that build on the data structures you implemented and the algorithmic intuition you've started to build up.
+In this sprint, you've been introduced into the fascinating and complicated world of blockchain.  You've also learned about a new type of data structure, trees, and how to traverse them.  
+
+This Sprint Challenge will asses you understanding of blockchain by giving you the chance to compete with your fellow students to mine coins using a new Proof of Work Algorithm.
+
+You'll also use your new-found knowledge of trees to optimize a working, but slow solution to a problem.  
 
 ## Instructions
 
@@ -26,37 +30,21 @@ This Sprint Challenge is split into three parts:
 
 ### Minimum Viable Product
 
-#### Task 1. Implement a Ring Buffer Data Structure
+#### [Blockchain](https://github.com/LambdaSchool/Sprint-Challenge--Hash-BC/tree/master/blockchain)
 
-A ring buffer is a non-growable buffer with a fixed size. When the ring buffer is full and a new element is inserted, the oldest element in the ring buffer is overwritten with the newest element. This kind of data structure is very useful for use cases such as storing logs and history information, where you typically want to store information up until it reaches a certain age, after which you don't care about it anymore and don't mind seeing it overwritten by newer data.
+## Interview Questions
 
-Implement this behavior in the RingBuffer class. RingBuffer has two methods, `append` and `get`. The `append` method adds elements to the buffer. The `get` method returns all of the elements in the buffer in a list in their given order. It should not return any `None` values in the list even if they are present in the ring buffer.
+During your challenge, you will be pulled aside by a PM for a 5 minute interview. During this interview, you will be expected to answer the following two topics:
 
-For example:
+Explain in detail the workings of a dynamic array:
+* What is the runtime complexity to access an array, add or remove from the front, and add or remove from the back?
+* What is the worse case scenario if you try to extend the storage size of a dynamic array?
 
-```python
-buffer = RingBuffer(3)
+Explain how blockchain networks remain in consensus:
+* What does a node do if it gets a message from another in the network with a new block?
+* Why can't someone cheat by changing a transaction from an earlier block to give themselves coins?
 
-buffer.get()   # should return []
-
-buffer.append('a')
-buffer.append('b')
-buffer.append('c')
-
-buffer.get()   # should return ['a', 'b', 'c']
-
-# 'd' overwrites the oldest value in the ring buffer, which is 'a'
-buffer.append('d')
-
-buffer.get()   # should return ['d', 'b', 'c']
-
-buffer.append('e')
-buffer.append('f')
-
-buffer.get()   # should return ['d', 'e', 'f']
-```
-
-#### Task 2. Runtime Optimization
+#### Runtime Optimization
 
 ***!Important!*** If you are running this using PowerShell by clicking on the green play button, you will get an error that `names1.txt` is not found.  To resolve this, run it, get the error, then `cd` into the `names` directory in the `python` terminal that opens in VSCode.
 
@@ -69,34 +57,16 @@ Six seconds is an eternity so you've been tasked with speeding up the code. Can 
 (Hint: You might try importing a data structure you built during the week)
 
 
-#### Task 3. Reverse a Linked List
-
-Inside of the `reverse` directory, you'll find a basic implementation of a Singly Linked List. _Without_ making it a Doubly Linked List (adding a tail attribute), complete the `reverse_list()` function within `reverse/reverse.py` reverse the contents of the list. 
-
-For example,
-```
-1->2->3->None
-```
-would become...
-```
-3->2->1->None
-```
-
-While credit will be given for a functional solution, only optimal solutions will earn a ***3*** on this task.
-
-#### Stretch 
-
-* Say your code from `names.py` is to run on an embedded computer with very limited RAM. Because of this, memory is extremely constrained and you are only allowed to store names in arrays (i.e. Python lists). How would you go about optimizing the code under these conditions? Try it out and compare your solution to the original runtime. (If this solution is less efficient than your original solution, include both and label the strech solution with a comment)
-
-
 ### Rubric
-| OBJECTIVE | TASK | 1 - DOES NOT MEET Expectations | 2 - MEETS Expectations | 3 - EXCEEDS Expectations | SCORE |
-| ---------- | ----- | ------- | ------- | ------- | -- |
-| _Student should be able to construct a queue and stack and justify the decision to use a linked list instead of an array._ | Task 1. Implement a Ring Buffer Data Structure | Solution in `ring_buffer.py` DOES NOT run OR it runs but has multiple logical errors, failing 3 or more tests | Solution in `ring_buffer.py` runs, but may have one or two logical errors; passes at least 7/9 tests | Solution in `ring_buffer.py` has no syntax or logical errors and passes 9/9 tests | |
-| _Student should be able to construct a binary search tree class that can perform basic operations with O(log n) runtime._ | Task 2. Runtime Optimization | Student does NOT correctly identify the runtime of the starter code in `name.py` and optimize it to run in under 6 seconds | Student correctly identifies the runtime of the starter code in `name.py` and optimizes it to run in under 6 seconds, with a solution of O(n log n) or better | Student does BOTH correctly identify the runtime of the starter code in `name.py` and optimizes it to run in under 6 seconds, with a solution of O(n) or better |  |
-| _Student should be able to construct a linked list and compare the runtime of operations to an array to make the optimal choice between them._ | Task 3. Reverse the contents of a Singly Linked List | Student's solution in `reverse.py` is failing one or more tests | Student's solution in `reverse.py` is able to correctly print out the contents of the Linked List in reverse order, passing all tests, BUT, the runtime of their solution is not optimal (requires looping through the list more than once) | Student's solution in `reverse.py` is able to correctly print out the contents of the Linked List in reverse order, passing all tests AND it has a runtime of O(n) or better |  |
-| _Student should be able to write code that utilizes Python Collections_ | [STRETCH] Optimize code from Task 2, given the constraint that **only standard Python collections** may be used to store names | Level 1 solution provided | Level 2 solution provided | Level 3 solution provided |  |
-| **FINAL SCORE** | _(3 tasks + 1 STRETCH goal)_  | **0-5** | **6-9** | **10-12** |  |
+
+| OBJECTIVE                                                                                                                                      | TASK                 | 1 \- DOES NOT MEET Expectations                                                                                              | 2 \- MEETS Expectations                                                                                                                                        | 3 \- EXCEEDS Expectations                                                                                                                                        | SCORE |
+|------------------------------------------------------------------------------------------------------------------------------------------------|----------------------|------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------|
+| \_Student should be able to construct a binary search tree class that can perform basic operations with O\(log n\) runtime\.\_                 | Runtime Optimization | Student does NOT correctly identify the runtime of the starter code in name\.py and optimize it to run in under 6 seconds    | Student correctly identifies the runtime of the starter code in name\.py and optimizes it to run in under 6 seconds, with a solution of O\(n log n\) or better | Student does BOTH correctly identify the runtime of the starter code in name\.py and optimizes it to run in under 6 seconds, with a solution of O\(n\) or better |
+| \_Student should be able to complete a Depth First Traversal and a Breadth First Traversal of a tree\.\_                                       | Interview Question   | If you were evaluating this candidate for a position with your company, your would object to them being added to your team\. | If you were evaluating this candidate for a position with your company, you would be pleased to have this person on your team\.                                | If you were evaluating this candidate for a position with your company, you would go out of your way to make sure this person is hired for your team\.           |
+| \_Student should be able to diagram and code a simple blockchain, utilizing a cryptographic hash\_                                             | Interview Question   | If you were evaluating this candidate for a position with your company, your would object to them being added to your team\. | If you were evaluating this candidate for a position with your company, you would be pleased to have this person on your team\.                                | If you were evaluating this candidate for a position with your company, you would go out of your way to make sure this person is hired for your team\.           |
+| \_Student should be able to utilize a Proof of Work process to protect a blockchain from attack\_                                              | Blockchain Problem   | The student is unable to mine a coin before the end of lunch\.                                                               | The student was able to mine a coin before the end of lunch\.                                                                                                  | The student presented a unique solution that was able to mine more than 100 coins before the end of lunch\.                                                      |
+| \_Student should be able to build a protocol to allow nodes in a blockchain network to communicate to share blocks and determine consensus\.\_ | Interview Question   | If you were evaluating this candidate for a position with your company, your would object to them being added to your team\. | If you were evaluating this candidate for a position with your company, you would be pleased to have this person on your team\.                                | If you were evaluating this candidate for a position with your company, you would go out of your way to make sure this person is hired for your team\.           |
+
 
 
 #### Passing the Sprint

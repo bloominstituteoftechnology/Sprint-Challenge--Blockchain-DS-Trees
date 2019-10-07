@@ -4,7 +4,7 @@ Welcome to the ground floor!  Satoshi Brian is giving you the chance to be the f
 
 Your task is to use your knowledge to write a mining program, similar to the ones you have been working with, to mine coins for the Lambda Blockchain.  
 
-The Lambda blockchain server works the same as the demos this week, _but it uses a DIFFERENT Proof of Work Algorithm._
+The Lambda blockchain server works the similar to the demos this week, _but it uses a DIFFERENT Proof of Work Algorithm._
 
 Multi-Ouroboros of Work Algorithm
     - Find a number p' such that the last six digits of hash(p) are equal
@@ -23,3 +23,40 @@ Some things to keep in mind:
 Some Strategy Suggestions:
 * Don't forget to install dependencies with `pipenv install` and run them inside `pipenv shell`
 * _Think about what will happen if your strategy is the same as the example from class.  If you start at 0 and count upward, and someone else does the same thing, but they start earlier or have a faster computer, what will happen?_
+
+
+API Endpoints:
+
+`/api/mine`
+POST - Submit your name and a proposed proof for validation.  If the action is unsuccessful, you will receive an error message.  If successful, it will return:
+
+{
+    'index': block.index,
+    'transactions': str(block.transactions),
+    'proof': block.proof,
+    'previous_hash': block.previous_hash,
+}
+
+Failure:
+{"message": "Proof valid but already submitted."}
+
+-or-
+
+{"message": "Invalid Proof"}
+
+
+`/api/full_chain`
+GET - Returns the full chain in JSON format
+
+
+`/api/totals/`
+GET - Returns the current total for each ID in the chain
+
+
+`api/last_proof`
+GET - Returns the last proof used to mine a block, and the current difficulty level.  Note that `difficulty` is currently set to a fixed number and can be ignored...for now!
+
+{
+    'proof': last_proof_value,
+    'difficulty': ChainDifficulty.objects.all().last().difficulty
+}
